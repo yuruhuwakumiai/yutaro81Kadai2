@@ -11,31 +11,31 @@ class ViewController: UIViewController {
     @IBOutlet private weak var textField1: UITextField!
     @IBOutlet private weak var textField2: UITextField!
     @IBOutlet private weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak private var label: UILabel!
+    @IBOutlet private weak var label: UILabel!
 
     @IBAction private func calculationButton(_ sender: Any) {
         let num1 = Double(textField1.text ?? "") ?? 0
         let num2 = Double(textField2.text ?? "") ?? 0
-        if segmentedControl.selectedSegmentIndex == 0 {
+
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
             let addition = num1 + num2
             label.text = "\(addition)"
-        }
-        if segmentedControl.selectedSegmentIndex == 1 {
+        case 1:
             let subtraction = num1 - num2
             label.text = "\(subtraction)"
-        }
-
-        if segmentedControl.selectedSegmentIndex == 2 {
+        case 2:
             let multiplication = num1 * num2
             label.text = "\(multiplication)"
-        }
-        if segmentedControl.selectedSegmentIndex == 3 {
-           if num2 != 0 {
-              let divison = num1 / num2
-                label.text = "\(divison)"
+        case 3:
+            if num2 == 0 {
+                label.text = "割る数には０以外を入力して下さい"
             } else {
-                label.text = "割る数には１０以外を入力して下さい"
+                let divison = num1 / num2
+                label.text = "\(divison)"
             }
+        default:
+            break
         }
     }
 }
