@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     @IBOutlet private weak var textField1: UITextField!
     @IBOutlet private weak var textField2: UITextField!
     @IBOutlet private weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak private var label: UILabel!
+    @IBOutlet private weak var label: UILabel!
 
     @IBAction private func calculationButton(_ sender: Any) {
         let num1 = Double(textField1.text ?? "") ?? 0
